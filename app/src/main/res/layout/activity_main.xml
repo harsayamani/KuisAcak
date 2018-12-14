@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/background_main3">
+
+    <ImageView
+        android:id="@+id/logo_awal"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo_outline"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/btn_pemain"
+        android:layout_marginTop="20sp"
+        android:layout_centerInParent="true"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo_awal"
+        android:text="Masuk Sebagai Pemain"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/shape_background_button"/>
+
+    <Button
+        android:id="@+id/btn_pembuat_soal"
+        android:textColor="#fff"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_pemain"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:text="Masuk Sebagai Pembuat Soal"
+        android:background="@drawable/shape_background_button2"
+        />
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Copyright @ ShineRPL 2018"/>
+
+
+</RelativeLayout>

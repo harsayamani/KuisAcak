@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Kuis Acak</string>
+    <string name="close" />
+    <string name="open" />
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="warning_pembuat_soal">Dalam pembuatan soal ini harus mematuhi aturan yang berlaku dan sudah dicantumkan di dalam aplikasi ini!</string>
+</resources>

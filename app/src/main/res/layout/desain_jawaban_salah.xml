@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="fill_parent">
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:id="@+id/timer_full"
+        android:layout_centerHorizontal="true"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/cancel"/>
+    <TextView
+        android:textAllCaps="true"
+        android:textAlignment="center"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:layout_below="@+id/timer_full"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="Jawaban salah"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

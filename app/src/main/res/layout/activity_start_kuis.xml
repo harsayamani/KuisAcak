@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartKuisActivity">
+    <android.support.v7.widget.CardView
+        android:layout_centerInParent="true"
+        android:layout_margin="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvSoal"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff"
+                android:textSize="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="    SOAL PILIHAN GANDA    "
+                android:background="@drawable/background_button_sopilga"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/tv10Soal"
+                android:layout_centerHorizontal="true"
+                android:text="10 Soal 10 Menit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSoal"/>
+
+            <ImageView
+                android:id="@+id/foto_user"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/tv10Soal"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/icon_player"/>
+            <TextView
+                android:textSize="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/foto_user"
+                android:id="@+id/nama_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama User"
+                android:textColor="#000"/>
+            <Button
+                android:id="@+id/btn_play"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textColor="#fff"
+                android:drawableTop="@drawable/ic_play_arrow_black_24dp"
+                android:layout_below="@+id/nama_user"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:background="@drawable/shape_soal_pilihan_ganda"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

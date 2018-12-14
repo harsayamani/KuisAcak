@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "801099114877",
+    "firebase_url": "https://kuis-acak.firebaseio.com",
+    "project_id": "kuis-acak",
+    "storage_bucket": "kuis-acak.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801099114877:android:5df3076a693ba264",
+        "android_client_info": {
+          "package_name": "com.example.harsayamani.kuisacak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801099114877-0gpc5qo0mi8knfalptev6q06rj3plo34.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.harsayamani.kuisacak",
+            "certificate_hash": "fafc6b8e48e2134ec00e33dee1c81577ffcf2abe"
+          }
+        },
+        {
+          "client_id": "801099114877-1e27mb49e1phtm0aeogq6rjf0gb16um0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJoWT9zwdCJy-iXJsCAQkfTSnVWfQwRKg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801099114877-1e27mb49e1phtm0aeogq6rjf0gb16um0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

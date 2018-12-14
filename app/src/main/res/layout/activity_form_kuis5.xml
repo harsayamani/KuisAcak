@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e9e9e9"
+    tools:context=".FormKuis5Activity"
+    android:layout_centerInParent="true">
+    <TextView
+        android:id="@+id/tv_score"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Score"
+        android:textSize="20sp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorPrimary"/>
+    <RelativeLayout
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="150dp"
+        android:layout_height="170dp"
+        android:background="@drawable/shape_background_form_kuis">
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="100dp"
+        android:id="@+id/relative1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:background="@drawable/shape_background_form_kuis">
+        <TextView
+            android:fontFamily="casual"
+            android:textSize="17sp"
+            android:id="@+id/tv_soal"
+            android:textColor="#fff"
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Memuat soal..."/>
+    </RelativeLayout>
+    <GridLayout
+        android:layout_marginTop="25dp"
+        android:id="@+id/grid_layout1"
+        android:layout_below="@+id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:padding="5dp"
+                android:background="@drawable/shape_button_answer"
+                android:id="@+id/opsi1"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:text="memuat jawaban..."
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <Button
+                android:padding="5dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/shape_button_answer"
+                android:id="@+id/opsi2"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:text="memuat jawaban.."
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+    </GridLayout>
+
+    <GridLayout
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/grid_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/shape_button_answer"
+                android:id="@+id/opsi3"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:text="memuat jawaban..."
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp" />
+            <Button
+                android:layout_alignParentRight="true"
+                android:background="@drawable/shape_button_answer"
+                android:id="@+id/opsi4"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:text="memuat jawaban..."
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp" />
+        </RelativeLayout>
+    </GridLayout>
+    <TextView
+        android:padding="5dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:text="memuat"
+        android:background="@drawable/shape_timer"
+        android:textAlignment="center"
+        android:fontFamily="serif-monospace"
+        android:id="@+id/tv_timer"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"/>
+
+    <RelativeLayout
+        android:id="@+id/connection_failed"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+        <ImageView
+            android:id="@+id/error404"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/error_connection"
+            android:layout_centerInParent="true"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/error404"
+            android:text="Connection Failed"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</RelativeLayout>
