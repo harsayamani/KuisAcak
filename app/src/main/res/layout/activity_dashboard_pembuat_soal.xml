@@ -118,7 +118,7 @@
         app:headerLayout="@layout/activity_navigation_header2"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:menu="@menu/fitur">
+        app:menu="@menu/fitur_pembuat_soal">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

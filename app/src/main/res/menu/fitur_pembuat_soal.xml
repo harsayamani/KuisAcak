@@ -9,6 +9,10 @@
         android:title="Daftar Soal"
         android:icon="@drawable/ic_list_black_24dp"/>
 
+    <item android:id="@+id/reward"
+        android:title="Reward Point"
+        android:icon="@drawable/ic_attach_money_black_24dp"/>
+
     <item android:id="@+id/log_out"
         android:title="Keluar"
         android:icon="@drawable/ic_arrow_back_black_24dp"/>

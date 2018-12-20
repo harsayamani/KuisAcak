@@ -101,6 +101,9 @@ public class DashboardPembuatSoal extends AppCompatActivity implements Navigatio
             case R.id.daftar_soal:
                 startActivity(new Intent(this, DaftarSoalActivity.class));
                 break;
+            case R.id.reward:
+                startActivity(new Intent(this, RewardPointActivity.class));
+                break;
             case R.id.log_out:
                 logOut();
                 break;
@@ -135,7 +138,6 @@ public class DashboardPembuatSoal extends AppCompatActivity implements Navigatio
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.submit_soal:
-                String getUserID = auth.getCurrentUser().getUid();
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference getReference;
 

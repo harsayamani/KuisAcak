@@ -1,14 +1,15 @@
 package com.example.harsayamani.kuisacak;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,24 +18,22 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
-public class DaftarSoalActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+public class RewardPointActivity extends AppCompatActivity {
+
+    TextView rewardPoint;
     private FirebaseAuth.AuthStateListener authStateListener;
     private ArrayList<DataSoal> dataSoals;
     private FirebaseAuth auth;
     ProgressDialog progressDialog;
     String getUserName;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daftar_soal);
-        recyclerView = findViewById(R.id.datalist);
-        getSupportActionBar().setTitle("Daftar Soal");
+        setContentView(R.layout.activity_reward_point);
+        getSupportActionBar().setTitle("Reward Point");
         auth = FirebaseAuth.getInstance();
+        rewardPoint = findViewById(R.id.reward_point);
         onState();
-        dataRecyclerView();
         getData();
     }
 
@@ -43,7 +42,7 @@ public class DaftarSoalActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() == null){
-                    startActivity(new Intent(DaftarSoalActivity.this, LoginActivity.class));
+                    startActivity(new Intent(RewardPointActivity.this, LoginActivity.class));
                     finish();
                 }
             }
@@ -60,6 +59,7 @@ public class DaftarSoalActivity extends AppCompatActivity {
         getUserName = auth.getCurrentUser().getDisplayName();
         reference.child("Pembuat Soal").child("Soal")
                 .addValueEventListener(new ValueEventListener() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         dataSoals = new ArrayList<>();
@@ -69,8 +69,14 @@ public class DaftarSoalActivity extends AppCompatActivity {
                                 dataSoals.add(soal);
                             }
                         }
-                        adapter = new RecyclerViewAdapter1(dataSoals, DaftarSoalActivity.this);
-                        recyclerView.setAdapter(adapter);
+                        int point = 0;
+                        for (int i=0; i<dataSoals.size(); i++){
+                            if (dataSoals.get(i).getAuthor().equals(auth.getCurrentUser().getDisplayName())){
+                                point = (i+1)*100;
+                            }
+                        }
+                        rewardPoint.setText(String.valueOf(point));
+
                         progressDialog.dismiss();
                     }
 
@@ -80,12 +86,6 @@ public class DaftarSoalActivity extends AppCompatActivity {
                         Log.e("Daftar Soal", databaseError.getDetails()+" "+databaseError.getMessage());
                     }
                 });
-    }
-
-    private void dataRecyclerView() {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
     }
 
     @Override
@@ -100,5 +100,10 @@ public class DaftarSoalActivity extends AppCompatActivity {
         if(authStateListener != null){
             auth.removeAuthStateListener(authStateListener);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(RewardPointActivity.this, DashboardPembuatSoal.class));
     }
 }

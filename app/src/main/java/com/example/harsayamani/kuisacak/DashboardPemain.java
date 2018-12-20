@@ -182,6 +182,7 @@ public class DashboardPemain extends AppCompatActivity implements NavigationView
         final ProgressDialog progressDialog = new ProgressDialog(DashboardPemain.this);
         progressDialog.setMessage("Mohon tunggu...");
         progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
         progressDialog.show();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         reference.child("Pemain").addValueEventListener(new ValueEventListener() {

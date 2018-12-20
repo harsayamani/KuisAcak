@@ -32,7 +32,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     int score;
     String nama;
-    DatabaseLeader databaseLeader;
+    DatabaseKuisAcak databaseKuisAcak;
     SQLiteDatabase readData;
     FirebaseAuth auth;
     String user = " ";
@@ -47,7 +47,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.dataleader);
         peringkatSaya = findViewById(R.id.tv_peringkat_saya);
         peringkatTinggi = findViewById(R.id.tv_peringkat_tertinggi);
-        databaseLeader = new DatabaseLeader(getBaseContext());
+        databaseKuisAcak = new DatabaseKuisAcak(getBaseContext());
         onAuthState();
         listLeaderBoard = new ArrayList<>();
         dataRecycleView();
@@ -76,7 +76,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
     }
 
     private void showData() {
-        readData = databaseLeader.getReadableDatabase();
+        readData = databaseKuisAcak.getReadableDatabase();
         @SuppressLint("Recycle") Cursor cursor = readData.rawQuery("select * from tb_leaderboard order by score desc",null);
         cursor.moveToFirst();
         for(int i=0; i<cursor.getCount(); i++){
@@ -102,11 +102,11 @@ public class LeaderBoardActivity extends AppCompatActivity {
     }
 
     private void toSQLite(){
-        databaseLeader.deleteAll();
+        databaseKuisAcak.deleteAll();
         for (int i=0; i<dataPemains.size(); i++){
             nama = dataPemains.get(i).getNamaPemain();
             score = dataPemains.get(i).getScorePemain();
-            databaseLeader.insertData(nama, score);
+            databaseKuisAcak.insertData(nama, score);
         }
     }
 
@@ -115,6 +115,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Sedang memuat...");
         progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
         progressDialog.show();
         reference.child("Pemain").addValueEventListener(new ValueEventListener() {
             @Override

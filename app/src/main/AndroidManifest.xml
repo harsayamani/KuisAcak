@@ -5,7 +5,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
     <application
         android:allowBackup="true"
@@ -24,6 +26,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -72,12 +75,18 @@
         <activity
             android:name=".LeaderBoardActivity"
             android:parentActivityName=".DashboardPemain" />
-        <activity android:name=".ExpPointActivity"
-            android:parentActivityName=".DashboardPemain"/>
-        <activity android:name=".MaterialSlide"
-            android:theme="@style/Theme.Intro"/>
-        <activity android:name=".MaterialSlide2"
-            android:theme="@style/Theme.Intro"/>
+        <activity
+            android:name=".ExpPointActivity"
+            android:parentActivityName=".DashboardPemain" />
+        <activity
+            android:name=".MaterialSlide"
+            android:theme="@style/Theme.Intro" />
+        <activity
+            android:name=".MaterialSlide2"
+            android:theme="@style/Theme.Intro" />
+        <activity
+            android:name=".RewardPointActivity"
+            android:parentActivityName=".DashboardPembuatSoal" />
     </application>
 
 </manifest>

@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
-public class DatabaseLeader extends SQLiteOpenHelper {
-    DatabaseLeader(@Nullable Context context) {
+public class DatabaseKuisAcak extends SQLiteOpenHelper {
+    DatabaseKuisAcak(@Nullable Context context) {
         super(context, "leaderboard.tb", null, 1);
     }
 

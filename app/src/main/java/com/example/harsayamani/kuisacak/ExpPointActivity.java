@@ -26,7 +26,7 @@ public class ExpPointActivity extends AppCompatActivity {
     TextView tvPoint;
     ArrayList<DataPemain> dataPemainArrayList;
     ArrayList<DataRiwayat> dataRiwayatArrayList;
-    DatabaseLeader databaseLeader;
+    DatabaseKuisAcak databaseKuisAcak;
     FirebaseAuth.AuthStateListener authStateListener;
     private RecyclerView recyclerView;
     int expPoint = 0;
@@ -39,7 +39,7 @@ public class ExpPointActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Exp Point");
         recyclerView = findViewById(R.id.recycle_riwayat);
         tvPoint = findViewById(R.id.tvPoint);
-        databaseLeader = new DatabaseLeader(getBaseContext());
+        databaseKuisAcak = new DatabaseKuisAcak(getBaseContext());
         dataRiwayatArrayList = new ArrayList<>();
         onAuthState();
         auth = FirebaseAuth.getInstance();
@@ -62,7 +62,7 @@ public class ExpPointActivity extends AppCompatActivity {
     }
 
     private void showRiwayat(){
-        SQLiteDatabase db = databaseLeader.getReadableDatabase();
+        SQLiteDatabase db = databaseKuisAcak.getReadableDatabase();
         String getUserName = auth.getCurrentUser().getDisplayName();
         Cursor cursor = db.rawQuery("select * from tb_riwayat where nama = '"+getUserName+"'", null);
         cursor.moveToLast();
@@ -76,12 +76,12 @@ public class ExpPointActivity extends AppCompatActivity {
     }
 
     private void toSQLite(){
-        databaseLeader.deleteAllRiwayat();
+        databaseKuisAcak.deleteAllRiwayat();
         for (int i=0; i<dataPemainArrayList.size(); i++){
             String nama = dataPemainArrayList.get(i).getNamaPemain();
             int score = dataPemainArrayList.get(i).getScorePemain();
             int exp = dataPemainArrayList.get(i).getExpPoint();
-            databaseLeader.insertDataRiwayat(nama, score, exp);
+            databaseKuisAcak.insertDataRiwayat(nama, score, exp);
         }
     }
 
@@ -95,6 +95,7 @@ public class ExpPointActivity extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(ExpPointActivity.this);
         progressDialog.setMessage("Mohon tunggu...");
         progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
         progressDialog.show();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         reference.child("Pemain").addValueEventListener(new ValueEventListener() {
@@ -114,8 +115,6 @@ public class ExpPointActivity extends AppCompatActivity {
                     if(dataPemainArrayList.get(i).getNamaPemain().equals(userName)){
                         point = dataPemainArrayList.get(i).getExpPoint();
                         expPoint = expPoint + point;
-                    }else {
-                        continue;
                     }
                 }
                 tvPoint.setText(String.valueOf(expPoint)+"xp");

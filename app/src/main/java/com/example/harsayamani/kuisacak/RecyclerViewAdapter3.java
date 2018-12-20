@@ -16,7 +16,7 @@ public class RecyclerViewAdapter3 extends RecyclerView.Adapter<RecyclerViewAdapt
     private ArrayList<DataRiwayat> listRiwayat;
     private Context context;
 
-    public RecyclerViewAdapter3(ArrayList<DataRiwayat> listRiwayat, Context context) {
+    RecyclerViewAdapter3(ArrayList<DataRiwayat> listRiwayat, Context context) {
         this.listRiwayat = listRiwayat;
         this.context = context;
     }
