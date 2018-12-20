@@ -58,13 +58,11 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         getReference = database.getReference();
-
         onAuthState();
         setExpPoint();
         setScore();
         getStar();
         getDataPemain();
-
     }
 
     private void onAuthState() {
@@ -90,27 +88,30 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void getStar() {
-        if (getScore()>=250 && getScore()<=332){
+        Intent i = getIntent();
+        int level = i.getIntExtra("kelipatan", 0)/10;
+
+        if (getScore()>=250*level && getScore()<=332*level){
             imageView1.setImageResource(R.drawable.icon_favorite_setengah);
             imageView2.setImageResource(R.drawable.icon_favorite_kosong);
             imageView3.setImageResource(R.drawable.icon_favorite_kosong);
-        }else if (getScore()>=333 && getScore()<=499){
+        }else if (getScore()>=333*level && getScore()<=499*level){
             imageView1.setImageResource(R.drawable.icon_favorite_full);
             imageView2.setImageResource(R.drawable.icon_favorite_kosong);
             imageView3.setImageResource(R.drawable.icon_favorite_kosong);
-        }else if (getScore()>=500 && getScore()<=665){
+        }else if (getScore()>=500*level && getScore()<=665*level){
             imageView1.setImageResource(R.drawable.icon_favorite_full);
             imageView2.setImageResource(R.drawable.icon_favorite_setengah);
             imageView3.setImageResource(R.drawable.icon_favorite_kosong);
-        }else if (getScore()>666 && getScore()<=749){
+        }else if (getScore()>666*level && getScore()<=749*level){
             imageView1.setImageResource(R.drawable.icon_favorite_full);
             imageView2.setImageResource(R.drawable.icon_favorite_full);
             imageView3.setImageResource(R.drawable.icon_favorite_kosong);
-        }else if (getScore()>750 && getScore()<=998){
+        }else if (getScore()>750*level && getScore()<=998*level){
             imageView1.setImageResource(R.drawable.icon_favorite_full);
             imageView2.setImageResource(R.drawable.icon_favorite_full);
             imageView3.setImageResource(R.drawable.icon_favorite_setengah);
-        }else if (getScore()>=999){
+        }else if (getScore()>=999*level){
             imageView1.setImageResource(R.drawable.icon_favorite_full);
             imageView2.setImageResource(R.drawable.icon_favorite_full);
             imageView3.setImageResource(R.drawable.icon_favorite_full);
@@ -137,7 +138,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         return intent.getIntExtra("score", 0);
     }
 
-    private void getDataPemain(){ ;
+    private void getDataPemain(){
         getReference.child("Pemain")
                 .push().setValue(new DataPemain(getDisplayName(), getScore(), getExpoint()))
                 .addOnSuccessListener(this, new OnSuccessListener<Void>() {
@@ -178,9 +179,11 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
                 viewResult.buildDrawingCache();
                 Bitmap bitmap = viewResult.getDrawingCache();
                 Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("image/png");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Score Kuis Acak");
+                intent.putExtra(Intent.EXTRA_TEXT, "Ayo segera mainkan Kuis Acak, jangan sampai terlewat !");
                 intent.putExtra(Intent.EXTRA_STREAM, saveImage(bitmap));
                 intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                intent.setType("image/png");
                 startActivity(Intent.createChooser(intent,"Bagikan dengan"));
                 break;
         }

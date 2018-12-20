@@ -118,7 +118,7 @@ public class ExpPointActivity extends AppCompatActivity {
                         continue;
                     }
                 }
-                tvPoint.setText(String.valueOf(expPoint));
+                tvPoint.setText(String.valueOf(expPoint)+"xp");
                 progressDialog.dismiss();
             }
 

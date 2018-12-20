@@ -94,10 +94,10 @@ public class Login2Activity extends AppCompatActivity implements GoogleApiClient
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Autentikasi Berhasil", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
                     finish();
                 }else{
-                    Toast.makeText(getApplicationContext(), "Autentikasi Gagal", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Login Gagal", Toast.LENGTH_SHORT).show();
                 }
                 progressDialog.dismiss();
             }

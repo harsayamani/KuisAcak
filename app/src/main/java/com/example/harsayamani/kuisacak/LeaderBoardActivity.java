@@ -80,9 +80,6 @@ public class LeaderBoardActivity extends AppCompatActivity {
         @SuppressLint("Recycle") Cursor cursor = readData.rawQuery("select * from tb_leaderboard order by score desc",null);
         cursor.moveToFirst();
         for(int i=0; i<cursor.getCount(); i++){
-//            if (i==10){
-//                break;
-//            }
             cursor.moveToPosition(i);
             DataLeaderboard dataLeaderboard = new DataLeaderboard(i+1, cursor.getString(1), cursor.getInt(2));
             listLeaderBoard.add(dataLeaderboard);

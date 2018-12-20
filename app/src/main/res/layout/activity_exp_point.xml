@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ExpPointActivity">
+    <android.support.v7.widget.RecyclerView
+        android:background="@color/colorWhite"
+        android:id="@+id/recycle_riwayat"
+        android:layout_below="@+id/cr2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
     <android.support.v7.widget.CardView
         android:id="@+id/cr"
         android:layout_margin="20dp"
@@ -21,7 +29,7 @@
                 android:id="@+id/tv11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jumlah Point Saya "
+                android:text="Jumlah Exp Point Saya "
                 android:layout_centerHorizontal="true"
                 android:textSize="20sp"/>
             <TextView
@@ -45,18 +53,11 @@
                 android:layout_centerHorizontal="true"
                 android:textSize="5sp"
                 tools:ignore="SmallSp" />
-            <Button
-                android:layout_below="@id/tv13"
-                android:textColor="@color/colorWhite"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorGreen"
-                android:text="Tukarkan Point" />
+
         </RelativeLayout>
     </android.support.v7.widget.CardView>
     <android.support.v7.widget.CardView
         android:id="@+id/cr2"
-        app:cardCornerRadius="12dp"
         android:layout_below="@+id/cr"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -64,6 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/riwayat"
             android:layout_margin="10dp"
             android:textSize="20dp"
             android:textAlignment="center"
@@ -71,11 +73,5 @@
             android:layout_height="wrap_content"
             android:text="Riwayat Main"/>
     </android.support.v7.widget.CardView>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycle_riwayat"
-        android:layout_below="@+id/cr2"
-        android:layout_width="match_parent"
-        android:layout_height="274dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+
 </RelativeLayout>

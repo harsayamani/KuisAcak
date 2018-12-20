@@ -69,6 +69,10 @@ public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapt
             holder.no.setTextSize(16);
             holder.nama.setTextSize(16);
             holder.score.setTextSize(16);
+        }else{
+            holder.no.setTextSize(15);
+            holder.nama.setTextSize(15);
+            holder.score.setTextSize(15);
         }
         holder.no.setText(String.valueOf(no));
         holder.nama.setText(nama);

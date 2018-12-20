@@ -1,6 +1,8 @@
 package com.example.harsayamani.kuisacak;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -42,7 +44,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         SignInButton googleButton = findViewById(R.id.login_google);
         googleButton.setOnClickListener(this);
         firebaseConnect();
-
     }
 
     private void firebaseConnect() {
@@ -91,10 +92,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Autentikasi Berhasil", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
                     finish();
                 }else{
-                    Toast.makeText(getApplicationContext(), "Autentikasi Gagal", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Login Gagal", Toast.LENGTH_SHORT).show();
                 }
                 progressDialog.dismiss();
             }
@@ -104,7 +105,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == RC_SIGN_ID){
             GoogleSignInResult googleSignInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (googleSignInResult.isSuccess()){

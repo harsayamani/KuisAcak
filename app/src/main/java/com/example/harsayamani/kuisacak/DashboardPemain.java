@@ -12,7 +12,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,9 +19,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
-import com.elconfidencial.bubbleshowcase.BubbleShowCase;
-import com.elconfidencial.bubbleshowcase.BubbleShowCaseBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,9 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
-
 import co.mobiwise.materialintro.shape.Focus;
 import co.mobiwise.materialintro.shape.FocusGravity;
 import co.mobiwise.materialintro.shape.ShapeType;
@@ -79,7 +73,6 @@ public class DashboardPemain extends AppCompatActivity implements NavigationView
         navigationDrawer();
         onState();
         levelPemain();
-
     }
 
     private void onState() {
@@ -218,47 +211,47 @@ public class DashboardPemain extends AppCompatActivity implements NavigationView
                     tvLevel.setText("Level 1");
                 }else if (expPoint>=3001 && expPoint<=6000){
                     soalKelipatan = 2;
-                    seekBar.setMax(6000);
+                    seekBar.setMax(6000-3000);
                     seekBar.setProgress(expPoint-3000);
                     tvLevel.setText("Level 2");
                 }else if (expPoint>=6001 && expPoint<=9000){
                     soalKelipatan = 3;
-                    seekBar.setMax(9000);
+                    seekBar.setMax(9000-6000);
                     seekBar.setProgress(expPoint-6000);
                     tvLevel.setText("Level 3");
                 }else if (expPoint>=9001 && expPoint<=12000){
-                    seekBar.setMax(12000);
+                    seekBar.setMax(12000-9000);
                     seekBar.setProgress(expPoint-9000);
                     soalKelipatan = 4;
                     tvLevel.setText("Level 4");
                 }else if (expPoint>=12001 && expPoint<=15000){
                     soalKelipatan = 5;
-                    seekBar.setMax(15000);
+                    seekBar.setMax(15000-12000);
                     seekBar.setProgress(expPoint-12000);
                     tvLevel.setText("Level 5");
                 }else if (expPoint>=15001 && expPoint<=18000){
                     soalKelipatan = 6;
-                    seekBar.setMax(18000);
+                    seekBar.setMax(18000-15000);
                     seekBar.setProgress(expPoint-15000);
                     tvLevel.setText("Level 6");
                 }else if (expPoint>=18001 && expPoint<=21000){
                     soalKelipatan = 7;
-                    seekBar.setMax(21000);
+                    seekBar.setMax(21000-18000);
                     seekBar.setProgress(expPoint-18000);
                     tvLevel.setText("Level 7");
                 }else if (expPoint>=21001 && expPoint<=24000){
                     soalKelipatan = 8;
-                    seekBar.setMax(24000);
+                    seekBar.setMax(24000-21000);
                     seekBar.setProgress(expPoint-21000);
                     tvLevel.setText("Level 8");
                 }else if (expPoint>=24001 && expPoint<=27000){
                     soalKelipatan = 9;
-                    seekBar.setMax(27000);
+                    seekBar.setMax(27000-24000);
                     seekBar.setProgress(expPoint-24000);
                     tvLevel.setText("Level 9");
                 }else if (expPoint>=27001 && expPoint<=30000){
                     soalKelipatan = 10;
-                    seekBar.setMax(30000);
+                    seekBar.setMax(30000-27000);
                     seekBar.setProgress(expPoint-27000);
                     tvLevel.setText("Level 10");
                 }
@@ -286,6 +279,7 @@ public class DashboardPemain extends AppCompatActivity implements NavigationView
             }
         });
     }
+
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {

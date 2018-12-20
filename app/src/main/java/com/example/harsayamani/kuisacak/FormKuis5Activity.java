@@ -244,6 +244,7 @@ public class FormKuis5Activity extends AppCompatActivity implements GoogleApiCli
                 if (count == kelipatan){
                     Intent intent =  new Intent(FormKuis5Activity.this, ResultActivity.class);
                     intent.putExtra("scoret", score);
+                    intent.putExtra("kelipatan", kelipatan);
                     startActivity(intent);
                 }else {
                     score = score + 0;
@@ -275,6 +276,7 @@ public class FormKuis5Activity extends AppCompatActivity implements GoogleApiCli
                     score = score + 100;
                     Intent intent =  new Intent(FormKuis5Activity.this, ResultActivity.class);
                     intent.putExtra("score", score);
+                    intent.putExtra("kelipatan", kelipatan);
                     startActivity(intent);
                 }else {
                     score = score + 100;
