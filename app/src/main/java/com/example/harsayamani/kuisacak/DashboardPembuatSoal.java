@@ -1,5 +1,6 @@
 package com.example.harsayamani.kuisacak;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -161,6 +162,11 @@ public class DashboardPembuatSoal extends AppCompatActivity implements Navigatio
                 }else if(isEmpty(getOpsiBenar)){
                     opsi_benar.setError("Wajib diisi");
                 }else {
+                    final ProgressDialog progressDialog = new ProgressDialog(DashboardPembuatSoal.this);
+                    progressDialog.setMessage("Soal sedang diinputkan, mohon tungu...");
+                    progressDialog.setIndeterminate(true);
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
                     getReference.child("Pembuat Soal").child("Soal")
                             .push().setValue(new DataSoal(getSoal, getOpsiA, getOpsiB, getOpsiC, getOpsiBenar, getAuthor))
                             .addOnSuccessListener(this, new OnSuccessListener<Void>() {
@@ -171,10 +177,10 @@ public class DashboardPembuatSoal extends AppCompatActivity implements Navigatio
                                     opsi_B.setText("");
                                     opsi_C.setText("");
                                     opsi_benar.setText("");
+                                    progressDialog.dismiss();
                                     Snackbar.make(findViewById(R.id.submit_soal), "Soal berhasil ditambahkan", Snackbar.LENGTH_SHORT).show();
                                 }
                             });
-
                 break;
         }
     }
