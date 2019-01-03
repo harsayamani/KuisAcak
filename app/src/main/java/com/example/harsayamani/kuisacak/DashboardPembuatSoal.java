@@ -182,8 +182,12 @@ public class DashboardPembuatSoal extends AppCompatActivity implements Navigatio
                                 }
                             });
                 break;
+            }
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, LoginActivity.class));
     }
 }
